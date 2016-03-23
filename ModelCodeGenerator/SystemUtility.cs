@@ -21,6 +21,7 @@ namespace ModelCodeGenerator
         public const string DBType_SCODBC = "SCODBC";
         public const string DBType_MySql = "MySql";
 
+
         public const string VarNamespace = "$(Namespace)";
         public const string VarProjectName = "$(ProjectName)";
         public const string VarRootClassName = "$(RootClassName)";
