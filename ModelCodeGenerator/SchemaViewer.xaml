@@ -1,0 +1,14 @@
+﻿<Window x:Class="ModelCodeGenerator.SchemaViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="查看数据库结构" Height="300" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <WindowsFormsHost Grid.Column="0" x:Name="wfhTables" Margin="5" />
+        <WindowsFormsHost Grid.Column="1" x:Name="wfhColumns" Margin="5" />
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Margin="-5,0,0,0" Width="10" Background="Transparent" />
+    </Grid>
+</Window>

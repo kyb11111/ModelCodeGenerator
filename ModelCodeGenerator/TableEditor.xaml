@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="ModelCodeGenerator.TableEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModelCodeGenerator" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" MinWidth="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Row="1" Margin="5" x:Name="dgColumns" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" SelectionMode="Single" SelectionChanged="dgColumns_SelectionChanged"></DataGrid>
+        <Grid  Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <local:ColumnEditor Margin="5" x:Name="editor" Grid.ColumnSpan="2"></local:ColumnEditor>
+            <Button Grid.Row="1" Grid.Column="0" Margin="5" x:Name="btnAllGen" Click="btnAllGen_Click">全产生</Button>
+            <Button Grid.Row="1" Grid.Column="1" Margin="5" x:Name="btnNonGen" Click="btnNonGen_Click">全不产生</Button>
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Margin="5" x:Name="btnGenClient" Click="btnGenClient_Click">生成客户端代码</Button>
+            <Button Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Margin="5" x:Name="btnGenServer" Click="btnGenServer_Click">生成服务端代码</Button>
+        </Grid>
+        <StackPanel Grid.ColumnSpan="2" Margin="5" Orientation="Horizontal">
+            <CheckBox VerticalAlignment="Center" Margin="5" x:Name="chkGen" IsChecked="True" Checked="chkGen_Checked" Unchecked="chkGen_Checked">是否产生代码</CheckBox>
+            <TextBlock VerticalAlignment="Center" Margin="25,5,5,5">类名:</TextBlock>
+            <TextBox VerticalAlignment="Center" Margin="5" x:Name="txtClassName" Width="130" TextChanged="txtClassName_TextChanged"></TextBox>
+            <TextBlock VerticalAlignment="Center" Margin="5">父类表:</TextBlock>
+            <ComboBox VerticalAlignment="Center" Margin="5" x:Name="cmbParent" Width="150" SelectionChanged="cmbParent_SelectionChanged"></ComboBox>
+            <TextBlock VerticalAlignment="Center" Margin="5">存根方式:</TextBlock>
+            <ComboBox VerticalAlignment="Center" Margin="5" x:Name="cmbCacheMode" Width="120" SelectionChanged="cmbCacheMode_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <Grid Background="#7f000000" Grid.RowSpan="2" Grid.ColumnSpan="2" x:Name="gridErrorBlock">
+            <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">数据库无此表</TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>

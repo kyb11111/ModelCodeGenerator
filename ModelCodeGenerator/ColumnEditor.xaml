@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ModelCodeGenerator.ColumnEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="5">
+            <CheckBox Margin="5,15" x:Name="chkGen" IsChecked="false" Checked="chkGen_Checked" Unchecked="chkGen_Checked">是否产生代码</CheckBox>
+            <TextBlock Margin="5,0">属性名:</TextBlock>
+            <TextBox Margin="5" x:Name="txtPropertyName" TextChanged="txtPropertyName_TextChanged"></TextBox>
+            <CheckBox Margin="5" x:Name="chkDbfield" IsChecked="false" Checked="chkDbfield_Checked" Unchecked="chkDbfield_Checked">是否更新到客户端</CheckBox>
+            <CheckBox Margin="5" x:Name="chkAltKey" IsChecked="false" Checked="chkAltKey_Checked" Unchecked="chkAltKey_Checked">可选索引键</CheckBox>
+            <CheckBox Margin="5" x:Name="chkRealtime" IsChecked="false" Checked="chkRealtime_Checked" Unchecked="chkRealtime_Checked">实时字段</CheckBox>
+            <TextBlock Margin="5,15,5,0">父关系表:</TextBlock>
+            <ComboBox Margin="5" Width="120" x:Name="cmbParent" SelectionChanged="cmbParent_SelectionChanged"></ComboBox>
+            <TextBlock Margin="5,15,5,0">属性类型:</TextBlock>
+            <ComboBox Margin="5" Width="120" x:Name="cmbDataType" SelectionChanged="cmbDataType_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <Grid Background="#7f000000" x:Name="gridErrorBlock">
+            <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">数据库无此字段</TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>

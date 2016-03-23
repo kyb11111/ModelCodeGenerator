@@ -1,0 +1,40 @@
+﻿<Window x:Class="ModelCodeGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ModelCodeGenerator"
+        Title="MainWindow" Loaded="Window_Loaded" MaxWidth="1000" MinWidth="1000" MaxHeight="600" MinHeight="600" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Button Margin="5" x:Name="btnSetting" Click="btnSetting_Click">配置项目</Button>
+            <Button Margin="5" x:Name="btnViewSchema" Click="btnViewSchema_Click">查看数据库结构</Button>
+            <Button Margin="5" x:Name="btnClear" Click="btnClear_Click">清除当前表配置</Button>
+            <Button Margin="5" x:Name="btnLoad" Click="btnLoad_Click">获取保存的配置</Button>
+            <Button Margin="5" x:Name="btnSave" Click="btnSave_Click">保存当前配置</Button>
+            <Button Margin="5" x:Name="btnGenModel" Click="btnGenModel_Click">生成服务端模型库</Button>
+            <Button Margin="5" x:Name="btnGenService" Click="btnGenServer_Click">生成服务项目</Button>
+            <Button Margin="5" x:Name="btnGenClient" Click="btnGenClient_Click">生成客户端项目</Button>
+        </StackPanel>
+        <Grid Width="150" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.ColumnSpan="2" x:Name="lbTables" Margin="5" SelectionMode="Single" SelectionChanged="lbTables_SelectionChanged"></ListBox>
+            <Button Grid.Row="1" Grid.Column="0" Margin="5" x:Name="btnAllGen" Click="btnAllGen_Click">全产生</Button>
+            <Button Grid.Row="1" Grid.Column="1" Margin="5" x:Name="btnNonGen" Click="btnNonGen_Click">全不产生</Button>
+        </Grid>
+        <local:TableEditor x:Name="editor" Grid.Column="1" Grid.Row="1"></local:TableEditor>
+    </Grid>
+</Window>
